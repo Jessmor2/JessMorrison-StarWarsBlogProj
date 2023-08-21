@@ -1,3 +1,16 @@
-/* 
-    General Styles
-*/
+.fullPage {
+    background-image: url(https://t4.ftcdn.net/jpg/02/22/57/71/360_F_222577191_ZqmuXPFqoc98ekpJlsCcI9MdLpOm49JU.jpg);
+}
+.card {
+    min-width: 18rem;
+}
+.card-img-top {
+    width: 100%;
+    height: 275px;
+    object-fit: fill;
+}
+#starWCard {
+    color: white;
+    background-color: #474747;
+
+}
