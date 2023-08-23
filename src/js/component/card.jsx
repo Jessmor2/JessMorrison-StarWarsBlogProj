@@ -9,7 +9,7 @@ const Card = (props) => {
     if (props.typeofCard === "characters") {
         return (
             <>
-                <div className="card" id="starWCard" style={{ width: '18rem', display: 'inline-block'}}>
+                <div className="card" id="starWCard" style={{ width: '16rem', display: 'inline-block'}}>
                     <img 
                         className="card-img-top" alt="Card image cap"
                         src={`https://starwars-visualguide.com/assets/img/characters/${props.srcImg}.jpg`}
@@ -17,13 +17,14 @@ const Card = (props) => {
                             e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
                         }}/>
                     <div className="card-body">
-                        <h5 className="card-title text-black">{props.name}</h5>
-                        <p className="card-text mb-0">Mass: {store.peopleDetails[0].mass}</p>
-                        <p className="card-text mb-0">Eye Color: {store.peopleDetails[0].eye_color}</p>
-                        <p className="card-text">Hair Color: {store.peopleDetails[0].hair_color}</p>
+                                    <h5 className="card-title text-black">{props.name}</h5>
+                                    <p className="card-text mb-0">Mass: {props.mass}</p>
+                                    <p className="card-text mb-0">Height: {props.height}</p>
+                                    <p className="card-text mb-0">Eye Color: {props.eye_color}</p>
+                                    <p className="card-text">Hair Color: {props.hair_color}</p>        
                     </div>
                     <div className="card-buttons">
-                        <Link to={'profile/'} className="btn btn-primary">Learn More!</Link>
+                        <Link to={'profile/' + props.index} className="btn btn-primary">Profile</Link>
                     </div>
                 </div>
             </>
@@ -32,7 +33,7 @@ const Card = (props) => {
         else if ( props.typeofCard === "planets" ) {
             return (
                 <>
-                    <div className="card" id="starWCard" style={{ width: '18rem', display: 'inline-block'}}>
+                    <div className="card" id="starWCard" style={{ width: '16rem', display: 'inline-block'}}>
                         <img 
                             className="card-img-top" alt="Card image cap"
                             src={props.name == "Tatooine" ? 'https://upload.wikimedia.org/wikipedia/en/6/6d/Tatooine_%28fictional_desert_planet%29.jpg' : `https://starwars-visualguide.com/assets/img/planets/${props.srcImg}.jpg`} 
@@ -41,12 +42,12 @@ const Card = (props) => {
                             }}/>
                         <div className="card-body">
                             <h5 className="card-title text-black">{props.name}</h5>
-                            <p className="card-text mb-0">Population: {store.planetDetails[0].population}</p>
-                            <p className="card-text mb-0">Terrain: {store.planetDetails[0].terrain}</p>
-                            <p className="card-text">Climate: {store.planetDetails[0].climate}</p>
+                            <p className="card-text mb-0">Population: {props.population}</p>
+                            <p className="card-text mb-0">Terrain: {props.terrain}</p>
+                            <p className="card-text">Climate: {props.climate}</p>
                         </div>
                         <div className="card-buttons">
-                            <Link to={'profile/' + props.index} className="btn btn-primary">Learn More!</Link>
+                            <Link to={'profile/' + props.index} className="btn btn-primary">Profile</Link>
                         </div>
                     </div>
                 </>
@@ -56,7 +57,7 @@ const Card = (props) => {
         else if ( props.typeofCard === "vehicles" ) {
             return (
                 <>
-                    <div className="card" id="starWCard" style={{ width: '18rem', display: 'inline-block'}}>
+                    <div className="card" id="starWCard" style={{ width: '16rem', display: 'inline-block'}}>
                         <img 
                             className="card-img-top" alt="Card image cap"
                             src={`https://starwars-visualguide.com/assets/img/vehicles/${props.srcImg}.jpg`} 
@@ -65,12 +66,12 @@ const Card = (props) => {
                             }}/>
                         <div className="card-body">
                             <h5 className="card-title text-black">{props.name}</h5>
-                            <p className="card-text mb-0">Model: {store.vehicleDetails[0].model}</p>
-                            <p className="card-text mb-0">Passengers: {store.vehicleDetails[0].passengers}</p>
-                            <p className="card-text">Cargo Size: {store.vehicleDetails[0].cargo_capacity}</p>
+                            <p className="card-text mb-0">Model: {props.model}</p>
+                            <p className="card-text mb-0">Passengers: {props.passengers}</p>
+                            <p className="card-text">Cargo Size: {props.cargo}</p>
                         </div>
                         <div className="card-buttons">
-                            <Link to={'profile/' + props.index} className="btn btn-primary">Learn More!</Link>
+                            <Link to={'profile/' + props.index} className="btn btn-primary">Profile</Link>
                         </div>
                     </div>
                 </>

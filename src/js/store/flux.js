@@ -25,11 +25,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			fetchPeopleDetails: async () => {
 				const store = getStore();
-				for (let i = 0; i <= 10; i++);
-				const response = await fetch("https://www.swapi.tech/api/people/" + 1 );
+				for (let i = 1; i <= 10; i++){
+				const response = await fetch("https://www.swapi.tech/api/people/" + i );
 				let data = await response.json();
 				setStore({peopleDetails: [...store.peopleDetails, data.result.properties]})
-				console.log(store.peopleDetails)
+				console.log(store.peopleDetails)}
 			},
 			fetchPlanets: async () => {
 				const response = await fetch("https://www.swapi.tech/api/planets")
@@ -39,10 +39,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			fetchPlanetDetails: async () => {
 				const store = getStore();
-				const response = await fetch("https://www.swapi.tech/api/planets/" + 1);
+				for (let i = 1; i <= 10; i++){
+				const response = await fetch("https://www.swapi.tech/api/planets/" + i);
 				let data = await response.json();
 				setStore({planetDetails: [...store.planetDetails, data.result.properties]})
-				console.log(store.planetDetails)
+				console.log(store.planetDetails)}
 			},
 			fetchVehicles: async () => {
 				const response = await fetch("https://www.swapi.tech/api/vehicles")
@@ -50,11 +51,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(data)
 				setStore({ vehicles: data.results });
 			},
-			fetchVehicleDetails: async () => {
+			fetchVehicleDetails: () => {
 				const store = getStore();
-				for (let i = 0; i <= 10; i++);
-				const response = await fetch("https://www.swapi.tech/api/vehicles/" + 4);
-				let data = await response.json();
+				fetch("https://www.swapi.tech/api/vehicles/" + 4)
+				.then((data) = response.json())
 				setStore({vehicleDetails: [...store.vehicleDetails, data.result.properties]})
 				console.log(store.vehicleDetails)
 			},

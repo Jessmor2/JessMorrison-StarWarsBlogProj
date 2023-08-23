@@ -14,13 +14,16 @@ const Blog = () => {
                     <div className="row text-white"><h2>People</h2></div>
                     <div className="row">
                         <div className="d-flex justify-content-between overflow-scroll">
-                            {store.people.map(person => 
+                            {store.peopleDetails.map((person, index) => 
                                 <Card
                                     name={person.name}
-                                    key={person.uid}
-                                    srcImg={person.uid}
+                                    key={index}
                                     typeofCard={typeofCard[0]}
-                                    // eyecolor={store.peopleDetails.eye_color}
+                                    mass={person.mass}
+                                    height={person.height}
+                                    eye_color={person.eye_color}
+                                    hair_color={person.hair_color}
+                                    srcImg={index + 1}
                                 />
                             )}
                         </div>
@@ -28,11 +31,14 @@ const Blog = () => {
                     <div className="row text-white"><h2>Planets</h2></div>
                     <div className="row">
                         <div className="d-flex justify-content-between overflow-scroll">   
-                            {store.planets.map(planet => 
+                            {store.planetDetails.map((planet, index) => 
                                 <Card
                                     name={planet.name} 
-                                    key={planet.uid}
-                                    srcImg={planet.uid}
+                                    key={index}
+                                    population={planet.population}
+                                    terrain={planet.terrain}
+                                    climate={planet.climate}
+                                    srcImg={index + 1}
                                     typeofCard={typeofCard[1]}
                                 />
                             )}
@@ -47,6 +53,9 @@ const Blog = () => {
                                     key={vehicle.uid}
                                     srcImg={vehicle.uid}
                                     typeofCard={typeofCard[2]}
+                                    cargo={vehicle.cargo_capacity}
+                                    passengers={vehicle.passengers}
+                                    model={vehicle.model}
                                 />
                             )}
                         </div>
