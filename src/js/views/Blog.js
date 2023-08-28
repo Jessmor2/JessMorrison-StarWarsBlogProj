@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
-import Card from "../component/card.jsx";
+import Card from "./card.js";
 
 const Blog = () => {
     const { store, actions } = useContext(Context);
@@ -11,10 +11,10 @@ const Blog = () => {
 		<>
             <div className="fullPage">
                 <div className="container">
-                    <div className="row text-white"><h2>People</h2></div>
+                    <div className="row text-warning text-center" ><h2 id="card-titles">Characters</h2></div>
                     <div className="row">
-                        <div className="d-flex justify-content-between overflow-scroll">
-                            {store.peopleDetails.map((person, index) => 
+                        <div className="d-flex justify-content-between overflow-scroll mb-3">
+                            {store.people.map((person, index) => 
                                 <Card
                                     name={person.name}
                                     key={index}
@@ -24,14 +24,15 @@ const Blog = () => {
                                     eye_color={person.eye_color}
                                     hair_color={person.hair_color}
                                     srcImg={index + 1}
+                                    personId={index}
                                 />
                             )}
                         </div>
                     </div>
-                    <div className="row text-white"><h2>Planets</h2></div>
+                    <div className="row text-warning text-center"><h2 id="card-titles">Planets</h2></div>
                     <div className="row">
-                        <div className="d-flex justify-content-between overflow-scroll">   
-                            {store.planetDetails.map((planet, index) => 
+                        <div className="d-flex justify-content-between overflow-scroll mb-3">   
+                            {store.planets.map((planet, index) => 
                                 <Card
                                     name={planet.name} 
                                     key={index}
@@ -40,22 +41,25 @@ const Blog = () => {
                                     climate={planet.climate}
                                     srcImg={index + 1}
                                     typeofCard={typeofCard[1]}
+                                    planetId={index}
                                 />
                             )}
                         </div>
                     </div>
-                    <div className="row text-white"><h2>Vehicles</h2></div>
+                    <div className="row text-warning text-center"><h2 id="card-titles">Vehicles</h2></div>
                     <div className="row">
-                        <div className="d-flex justify-content-between overflow-scroll">
-                            {store.vehicles.map(vehicle => 
+                        <div className="d-flex justify-content-between overflow-scroll mb-3">
+                            {store.vehicles.map((vehicle, index) => 
                                 <Card 
                                     name={vehicle.name} 
-                                    key={vehicle.uid}
-                                    srcImg={vehicle.uid}
+                                    key={index}
+                                    srcImg={index + 4}
                                     typeofCard={typeofCard[2]}
                                     cargo={vehicle.cargo_capacity}
                                     passengers={vehicle.passengers}
                                     model={vehicle.model}
+                                    costCredits={vehicle.cost_in_credits}
+                                    vehicleId={index}
                                 />
                             )}
                         </div>

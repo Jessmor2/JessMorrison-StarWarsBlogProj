@@ -1,9 +1,12 @@
 .fullPage {
     background-image: url(https://t4.ftcdn.net/jpg/02/22/57/71/360_F_222577191_ZqmuXPFqoc98ekpJlsCcI9MdLpOm49JU.jpg);
 }
+#fullPage {
+    background-image: url(https://t4.ftcdn.net/jpg/02/22/57/71/360_F_222577191_ZqmuXPFqoc98ekpJlsCcI9MdLpOm49JU.jpg);
+}
 .card {
     min-width: 16rem;
-    max-width: 18rem;
+    max-width: 16rem;
 }
 .card-img-top {
     width: 100%;
@@ -13,5 +16,51 @@
 #starWCard {
     color: white;
     background-color: #474747;
-
+    margin-top: 10px;
+}
+.sWLogo {
+    width: 180px;
+    height: 120px;
+    padding-left: 25px;
+}
+#favButton {
+    margin-right: 15px;
+    text-align: center;
+}
+.profile-image {
+    margin-left: 30px;
+    height: 300px;
+    width: 270px;
+}
+#profileStats {
+    margin-left: 10px;
+    margin-right: 10px;
+    border: #474747 1px solid;
+}
+.profile-name {
+    text-align: center;
+    margin-top: -100px;
+    font-size: 80px;
+}
+#card-titles {
+    font-size: 50px;
+    letter-spacing: 3mm;
+}
+.linkButtons {
+    background-color: black;
+    margin-left: 5px;
+    margin-bottom: 15px;
+}
+.favButtons {
+    background-color: gold;
+    color: black;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+#dropdownMenuButton1 {
+    margin-right: 35px;
+}
+.favButtons:focus {
+    background-color: black;
+    color: gold;
 }

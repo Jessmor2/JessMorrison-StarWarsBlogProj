@@ -6,7 +6,9 @@ import  Blog  from "./views/Blog.js";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
-import Profile from "./views/Profile";
+import ProfilePerson from "./views/ProfilePerson";
+import ProfilePlanet from "./views/ProfilePlanet";
+import ProfileVehicle from "./views/ProfileVehicle";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -24,7 +26,9 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Blog />} />
-						<Route path="/profile/" element={<Profile />} />
+						<Route path="/profilePerson/:id" element={<ProfilePerson />} />
+						<Route path="/profilePlanet/:id" element={<ProfilePlanet />} />
+						<Route path="/profileVehicle/:id" element={<ProfileVehicle />} />
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>

@@ -4,17 +4,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 			people: [],
 			planets: [],
 			vehicles: [],
-			peopleDetails: [],
-			planetDetails: [],
-			vehicleDetails: []
+			favorites: []
 		},
 		actions: {
+			addFavorite: (name) => {
+				let storeFavorites = getStore().favorites
+				storeFavorites.push(name)
+				setStore({favorites: storeFavorites})
+			},
+			removeFavorite: (index) => {
+				let storeFavorites = getStore().favorites
+				let filteredFavorites = storeFavorites.filter((item, idx) => idx !== index)
+				setStore({favorites: filteredFavorites})
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
 			fetchPeople: async () => {
-				fetch("https://www.swapi.tech/api/people")
+				fetch("https://swapi.dev/api/people")
 				.then(response => response.json())
 				.then(data => {
 					console.log(data);
@@ -23,49 +31,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 				
 				.catch(error => console.log("Error msg: ", error))
 			},
-			fetchPeopleDetails: async () => {
-				const store = getStore();
-				for (let i = 1; i <= 10; i++){
-				const response = await fetch("https://www.swapi.tech/api/people/" + i );
-				let data = await response.json();
-				setStore({peopleDetails: [...store.peopleDetails, data.result.properties]})
-				console.log(store.peopleDetails)}
-			},
 			fetchPlanets: async () => {
-				const response = await fetch("https://www.swapi.tech/api/planets")
+				const response = await fetch("https://swapi.dev/api/planets")
 				let data = await response.json()
 				console.log(data)
 				setStore({ planets: data.results });
 			},
-			fetchPlanetDetails: async () => {
-				const store = getStore();
-				for (let i = 1; i <= 10; i++){
-				const response = await fetch("https://www.swapi.tech/api/planets/" + i);
-				let data = await response.json();
-				setStore({planetDetails: [...store.planetDetails, data.result.properties]})
-				console.log(store.planetDetails)}
-			},
 			fetchVehicles: async () => {
-				const response = await fetch("https://www.swapi.tech/api/vehicles")
-				let data = await response.json()
-				console.log(data)
-				setStore({ vehicles: data.results });
-			},
-			fetchVehicleDetails: () => {
-				const store = getStore();
-				fetch("https://www.swapi.tech/api/vehicles/" + 4)
-				.then((data) = response.json())
-				setStore({vehicleDetails: [...store.vehicleDetails, data.result.properties]})
-				console.log(store.vehicleDetails)
+				const response = await fetch("https://swapi.dev/api/vehicles");
+				let data = await response.json();
+				console.log(data);
+				setStore({vehicles:data.results})
 			},
 			initialLoading: () => {
 				getActions().fetchPeople()
 				getActions().fetchPlanets();
 				getActions().fetchVehicles();
-				getActions().fetchPeopleDetails();
-				getActions().fetchPlanetDetails();
-				getActions().fetchVehicleDetails()
 			},
+			
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
