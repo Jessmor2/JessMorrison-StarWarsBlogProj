@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			people: [],
 			planets: [],
 			vehicles: [],
+			films: [],
 			favorites: []
 		},
 		actions: {
@@ -16,10 +17,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let storeFavorites = getStore().favorites
 				let filteredFavorites = storeFavorites.filter((item, idx) => idx !== index)
 				setStore({favorites: filteredFavorites})
-			},
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
 			},
 			fetchPeople: async () => {
 				fetch("https://swapi.dev/api/people")
@@ -43,25 +40,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(data);
 				setStore({vehicles:data.results})
 			},
+			fetchFilms: async () => {
+				const response = await fetch("https://swapi.dev/api/films");
+				let data = await response.json();
+				console.log(data);
+				setStore({films:data.results})
+			},
 			initialLoading: () => {
 				getActions().fetchPeople()
 				getActions().fetchPlanets();
 				getActions().fetchVehicles();
-			},
-			
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
+				getActions().fetchFilms();
 			}
 		}
 	};

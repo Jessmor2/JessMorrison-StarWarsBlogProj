@@ -51,6 +51,14 @@ const ProfilePlanet = () => {
                         <h3>Surface Water Rating</h3>
                         <div className="profile-data text-white fs-3">{item.surface_water}</div>
                     </div>
+                    <div className="col-6 border border-warning text-warning bg-dark fs-3">
+                        <h3>Films Planet has Been Featured</h3>
+                        <div className="profile-data text-white">{item.films}</div>
+                    </div>
+                    <div className="col-6 border border-warning text-warning bg-dark fs-3">
+                        <h3>Known Residents</h3>
+                        <div className="profile-data text-white">{item.residents}</div>
+                    </div>
                 </div>
             
             </div>

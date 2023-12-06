@@ -5,7 +5,7 @@ import Card from "./card.js";
 
 const Blog = () => {
     const { store, actions } = useContext(Context);
-    const typeofCard = ["characters", "planets", "vehicles"]
+    const typeofCard = ["characters", "planets", "vehicles", "films"]
     
     return (
 		<>
@@ -60,6 +60,24 @@ const Blog = () => {
                                     model={vehicle.model}
                                     costCredits={vehicle.cost_in_credits}
                                     vehicleId={index}
+                                />
+                            )}
+                        </div>
+                    </div>
+                    <div className="row text-warning text-center"><h2 id="card-titles">Films</h2></div>
+                    <div className="row">
+                        <div className="d-flex justify-content-between overflow-scroll mb-3">
+                            {store.films.map((film, index) => 
+                                <Card 
+                                    title={film.title} 
+                                    key={index}
+                                    srcImg={index + 1}
+                                    typeofCard={typeofCard[3]}
+                                    episode_id={film.episode_id}
+                                    director={film.director}
+                                    producer={film.producer}
+                                    release_date={film.release_date}
+                                    filmId={index}
                                 />
                             )}
                         </div>

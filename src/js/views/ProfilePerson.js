@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
-import Card from "./card.js";
 import { useParams } from "react-router";
 
 const ProfilePerson = () => {
@@ -49,6 +48,14 @@ const ProfilePerson = () => {
                     <div className="col-3 border border-warning text-warning fs-3">
                         <h3>Hair Color</h3>
                         <div className="profile-data text-white">{item.hair_color}</div>
+                    </div>
+                    <div className="col-6 border border-warning text-warning bg-dark fs-3">
+                        <h3>Films Character Appeared In</h3>
+                        <div className="profile-data text-white">{item.films}</div>
+                    </div>
+                    <div className="col-6 border border-warning text-warning bg-dark fs-3">
+                        <h3>Vehicles Character has Driven</h3>
+                        <div className="profile-data text-white">{item.vehicles}</div>
                     </div>
                 </div>
             
