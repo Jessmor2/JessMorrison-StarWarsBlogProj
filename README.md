@@ -1,2 +1,2 @@
 # Star Wars Blog 
-## View the Blog live here: https://jessmor2.github.io/JessMorrison-StarWarsBlogProj/
+## View the Blog live here: https://jess-morrison-star-wars-blog-proj-7i34kx5lq-jessmor2.vercel.app/
