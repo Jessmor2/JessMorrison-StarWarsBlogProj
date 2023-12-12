@@ -49,11 +49,11 @@ const ProfilePerson = () => {
                         <h3>Hair Color</h3>
                         <div className="profile-data text-white">{item.hair_color}</div>
                     </div>
-                    <div className="col-6 border border-warning text-warning bg-dark fs-3">
+                    <div className="col-6 border border-warning text-warning fs-3">
                         <h3>Films Character Appeared In</h3>
                         <div className="profile-data text-white">{item.films}</div>
                     </div>
-                    <div className="col-6 border border-warning text-warning bg-dark fs-3">
+                    <div className="col-6 border border-warning text-warning fs-3">
                         <h3>Vehicles Character has Driven</h3>
                         <div className="profile-data text-white">{item.vehicles}</div>
                     </div>
