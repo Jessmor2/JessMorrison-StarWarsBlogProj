@@ -10,39 +10,57 @@ const ProfilePlanet = () => {
     let id = parseInt(params.id)
     let item = store.planets[id];
 
-    function getFilms() {
-        let domains = item.films;
-        console.log(domains);
-        let filmIds = domains.map(string => string.slice(-2, -1));
-        console.log(filmIds);
-        for (let key in filmIds) {
-            if (key in filmIds) {
-                return <img 
+
+    function extractNumbers(domains) {
+        for (let i=0; i < domains.length; i++){
+            let str = domains[i];
+            let matches = str.replace(/[^0-9]/g, "");
+            if (matches) {
+                console.log(matches)
+            }
+            return <img
                         className="items-image"
-                        src={`https://starwars-visualguide.com/assets/img/films/${filmIds[key]}.jpg`}
+                        src={`https://starwars-visualguide.com/assets/img/films/${matches}.jpg`}
                         onError={(e) => {
                             e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
                         }}
-                    />
-                }
-            }
+                        />
+        }
+    }
+
+    function getFilms() {
+        let domains = item.films;
+        extractNumbers(domains);
+        // let filmIds = domains.map(string => string.slice(-2, -1));
+        // console.log(filmIds);
+        // for (let key in filmIds) {
+        //     if (key in filmIds) {
+        //         return <img 
+        //                 className="items-image"
+        //                 src={`https://starwars-visualguide.com/assets/img/films/${filmIds[key]}.jpg`}
+        //                 onError={(e) => {
+        //                     e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
+        //                 }}
+        //             />
+        //         }
+        //     }
         };
 
     function getResidents() {
         let peopleLinks = item.residents;
-        console.log(peopleLinks);
-        let peopleIds = peopleLinks.map(string => string.slice(-2, -1));
-        console.log(peopleIds);
-        for (let  i=0; i<peopleIds.length; i++){
-            console.log(peopleIds[i])
-            while (i < peopleIds.length){
-                return <img 
-                            className="items-image"
-                            src={`https://starwars-visualguide.com/assets/img/characters/${peopleIds[i]}.jpg`}
-                            onError={(e) => {
-                                e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
-                            }}
-                        />
+        extractNumbers(peopleLinks);
+        // let peopleIds = peopleLinks.map(string => string.slice(-2, -1));
+        // console.log(peopleIds);
+        // for (let  i=0; i<peopleIds.length; i++){
+        //     console.log(peopleIds[i])
+        //     while (i < peopleIds.length){
+        //         return <img 
+        //                     className="items-image"
+        //                     src={`https://starwars-visualguide.com/assets/img/characters/${peopleIds[i]}.jpg`}
+        //                     onError={(e) => {
+        //                         e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
+        //                     }}
+                        // />
             // do (let key in peopleIds) {
             //     return <img 
             //             className="items-image"
@@ -52,8 +70,8 @@ const ProfilePlanet = () => {
             //             }}
             //         />
             //     }
-            }
-        }
+        //     }
+        // }
         };
         
     
