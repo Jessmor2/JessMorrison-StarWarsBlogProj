@@ -1,8 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
-import Card from "./card.js";
 import { useParams } from "react-router";
+import RelationalDisplay from "./RelationalDisplay.js";
+
+const typeofCard = ["characters", "planets", "vehicles", "films"];
 
 const ProfilePlanet = () => {
     const { store, actions } = useContext(Context);
@@ -10,68 +12,23 @@ const ProfilePlanet = () => {
     let id = parseInt(params.id)
     let item = store.planets[id];
 
-
-    function extractNumbers(domains) {
-        for (let i=0; i < domains.length; i++){
-            let str = domains[i];
-            let matches = str.replace(/[^0-9]/g, "");
-            if (matches) {
-                console.log(matches)
-            }
-            return <img
-                        className="items-image"
-                        src={`https://starwars-visualguide.com/assets/img/films/${matches}.jpg`}
-                        onError={(e) => {
-                            e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
-                        }}
-                        />
-        }
-    }
-
     function getFilms() {
-        let domains = item.films;
-        extractNumbers(domains);
-        // let filmIds = domains.map(string => string.slice(-2, -1));
-        // console.log(filmIds);
-        // for (let key in filmIds) {
-        //     if (key in filmIds) {
-        //         return <img 
-        //                 className="items-image"
-        //                 src={`https://starwars-visualguide.com/assets/img/films/${filmIds[key]}.jpg`}
-        //                 onError={(e) => {
-        //                     e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
-        //                 }}
-        //             />
-        //         }
-        //     }
+        console.log("item films",item.films)
+        let Links = item.films;
+        var i;
+        for (i=0; i<Links.length; i++) {
+            console.log(Links[i])
+            actions.fetchFilmsLinks(Links[i])
+            console.log(store.filmsLinks)
+        }
         };
 
     function getResidents() {
+        console.log("item people", item.residents)
         let peopleLinks = item.residents;
-        extractNumbers(peopleLinks);
-        // let peopleIds = peopleLinks.map(string => string.slice(-2, -1));
-        // console.log(peopleIds);
-        // for (let  i=0; i<peopleIds.length; i++){
-        //     console.log(peopleIds[i])
-        //     while (i < peopleIds.length){
-        //         return <img 
-        //                     className="items-image"
-        //                     src={`https://starwars-visualguide.com/assets/img/characters/${peopleIds[i]}.jpg`}
-        //                     onError={(e) => {
-        //                         e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
-        //                     }}
-                        // />
-            // do (let key in peopleIds) {
-            //     return <img 
-            //             className="items-image"
-            //             src={`https://starwars-visualguide.com/assets/img/characters/${peopleIds[key]}.jpg`}
-            //             onError={(e) => {
-            //                 e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
-            //             }}
-            //         />
-            //     }
-        //     }
-        // }
+        console.log("people links", peopleLinks)
+        actions.fetchPeopleLinks(peopleLinks);
+        console.log("store people", store.peopleLinks)
         };
         
     
@@ -117,14 +74,32 @@ const ProfilePlanet = () => {
                         <h3>Surface Water Rating</h3>
                         <div className="profile-data text-white fs-3">{item.surface_water}</div>
                     </div>
-                    <div className="col-6 border border-warning text-warning fs-3">
+                    <div className="col-6 border border-warning text-warning bg-dark fs-3">
                         <h3>Related Films </h3>
-                        <div className="profile-data text-white">Films display here{getFilms()}</div>
+                        <div className="profile-data text-white" style={{ display: 'flex', flexWrap: 'wrap' }}>{getFilms()}
+                        {store.filmsLinks.map((film, index) => 
+                                <RelationalDisplay
+                                    title={film.title} 
+                                    typeofCard={typeofCard[3]}
+                                    key={index}
+                                    srcImg={index + 1}
+                                />
+                            )}
+                        </div>
                             
                     </div>
                     <div className="col-6 border border-warning text-warning bg-dark fs-3">
                         <h3>Known Residents</h3>
-                        <div className="profile-data text-white">Residents display here{getResidents()}</div>
+                        <div className="profile-data text-white" style={{ display: 'flex', flexWrap: 'wrap' }}>{getResidents()}
+                        {store.peopleLinks.map((person, index) => 
+                                <RelationalDisplay
+                                    name={person.name} 
+                                    typeofCard={typeofCard[0]}
+                                    key={index}
+                                    srcImg={index + 1}
+                                />
+                            )}
+                        </div>
                     </div>
                 </div>
             

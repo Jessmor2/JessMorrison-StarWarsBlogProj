@@ -17,7 +17,7 @@ const Card = (props) => {
                             e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
                         }}/>
                     <div className="card-body">
-                                    <h5 className="card-title text-warning fs-3">{props.name}</h5>
+                                    <Link to={'/profilePerson/' + props.personId} style={{ textDecoration: 'none' }}><h5 className="card-title text-warning fs-3">{props.name}</h5></Link>
                                     <p className="card-text mb-0">Mass: {props.mass}</p>
                                     <p className="card-text mb-0">Height: {props.height}</p>
                                     <p className="card-text mb-0">Eye Color: {props.eye_color}</p>
@@ -46,7 +46,7 @@ const Card = (props) => {
                                 e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
                             }}/>
                         <div className="card-body">
-                            <h5 className="card-title text-warning fs-3">{props.name}</h5>
+                            <Link to={'/profilePlanet/' + props.planetId} style={{ textDecoration: 'none' }}><h5 className="card-title text-warning fs-3" style={{ textDecoration: 'none' }}>{props.name}</h5></Link>
                             <p className="card-text mb-0">Population: {props.population}</p>
                             <p className="card-text mb-0">Terrain: {props.terrain}</p>
                             <p className="card-text">Climate: {props.climate}</p>
@@ -75,7 +75,7 @@ const Card = (props) => {
                                 e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
                             }}/>
                         <div className="card-body">
-                            <h5 className="card-title text-warning fs-3">{props.name}</h5>
+                            <Link to={'/profileVehicle/' + props.vehicleId} style={{ textDecoration: 'none' }}><h5 className="card-title text-warning fs-3" style={{ textDecoration: 'none' }}>{props.name}</h5></Link>
                             <p className="card-text mb-0">Model: {props.model}</p>
                             <p className="card-text mb-0">Passengers: {props.passengers}</p>
                             <p className="card-text mb-0">Cargo Size: {props.cargo}</p>
@@ -105,7 +105,7 @@ const Card = (props) => {
                                 e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
                             }}/>
                         <div className="card-body">
-                            <h5 className="card-title text-warning fs-3">{props.title}</h5>
+                        <Link to={'/profileFilm/' + props.filmId} style={{ textDecoration: 'none' }}><h5 className="card-title text-warning fs-3" style={{ textDecoration: 'none' }}>{props.title}</h5></Link>
                             <p className="card-text mb-0">Episode #: {props.episode_id}</p>
                             <p className="card-text mb-0">Director: {props.director}</p>
                             <p className="card-text mb-0">Producer: {props.Producer}</p>
