@@ -5,10 +5,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],
 			vehicles: [],
 			films: [],
-			peopleLinks: [],
-			planetsLinks: [],
-			vehiclesLinks: [],
-			filmsLinks: [],
 			favorites: []
 		},
 		actions: {
@@ -52,46 +48,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({ films: data.results });
 				})
 			
-				.catch(error => console.log("Error msg: ", error))
-			},
-			fetchPeopleLinks: async (Links) => {
-				fetch(`"${Links}"`)
-				.then(response => response.json())
-				.then(data => {
-					console.log(data);
-					setStore({ peopleLinks: data.results });
-				})
-				
-				.catch(error => console.log("Error msg: ", error))
-			},
-			fetchPlanetsLinks: async (links) => {
-				fetch(`'${links}'`)
-				.then(response => response.json())
-				.then(data => {
-					console.log(data);
-					setStore({ planetsLinks: data.results });
-				})
-				
-				.catch(error => console.log("Error msg: ", error))
-			},
-			fetchVehiclesLinks: async (links) => {
-				fetch(`'${links}'`)
-				.then(response => response.json())
-				.then(data => {
-					console.log(data);
-					setStore({ VehiclesLinks: data.results });
-				})
-				
-				.catch(error => console.log("Error msg: ", error))
-			},
-			fetchFilmsLinks: async (Links) => {
-				fetch(`'${Links}'`)
-				.then(response => response.json())
-				.then(data => {
-					console.log(data);
-					setStore({ filmsLinks: data.results });
-				})
-				
 				.catch(error => console.log("Error msg: ", error))
 			},
 			initialLoading: () => {

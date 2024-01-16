@@ -58,14 +58,6 @@ const ProfileVehicle = () => {
                         <h3>Max Atmospheric Speed</h3>
                         <div className="profile-data text-white fs-3">{item.max_atmosphering_speed}</div>
                     </div>
-                    <div className="col-6 border border-warning text-warning bg-dark fs-3">
-                        <h3>Films Appeared in</h3>
-                        <div className="profile-data text-white">{item.films}</div>
-                    </div>
-                    <div className="col-6 border border-warning text-warning bg-dark fs-3">
-                        <h3>Verified Pilots</h3>
-                        <div className="profile-data text-white">{item.pilots}</div>
-                    </div>
                 </div>
             
             </div>
