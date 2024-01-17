@@ -9,13 +9,15 @@ const Card = (props) => {
     if (props.typeofCard === "characters") {
         return (
             <>
-                <div className="card" id="starWCard" style={{ width: '16rem', display: 'inline-block'}}>
-                    <img 
-                        className="card-img-top" alt="Card image cap"
-                        src={`https://starwars-visualguide.com/assets/img/characters/${props.srcImg}.jpg`}
-                        onError={(e) => {
-                            e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
+                <div className="card mx-1" id="starWCard" style={{ width: '16rem', display: 'inline-block'}}>
+                    <Link className="text-warning" to={'/profilePerson/' + props.personId}>
+                        <img 
+                            className="card-img-top" alt="Card image cap"
+                            src={`https://starwars-visualguide.com/assets/img/characters/${props.srcImg}.jpg`}
+                            onError={(e) => {
+                                e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
                         }}/>
+                    </Link>
                     <div className="card-body">
                                     <Link to={'/profilePerson/' + props.personId} style={{ textDecoration: 'none' }}><h5 className="card-title text-warning fs-3">{props.name}</h5></Link>
                                     <p className="card-text mb-0">Mass: {props.mass}</p>
@@ -38,13 +40,15 @@ const Card = (props) => {
         else if ( props.typeofCard === "planets" ) {
             return (
                 <>
-                    <div className="card" id="starWCard" style={{ width: '16rem', display: 'inline-block'}}>
-                        <img 
-                            className="card-img-top" alt="Card image cap"
-                            src={props.name == "Tatooine" ? 'https://upload.wikimedia.org/wikipedia/en/6/6d/Tatooine_%28fictional_desert_planet%29.jpg' : `https://starwars-visualguide.com/assets/img/planets/${props.srcImg}.jpg`} 
-                            onError={(e) => {
-                                e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
+                    <div className="card mx-1" id="starWCard" style={{ width: '16rem', display: 'inline-block'}}>
+                        <Link className="text-warning" to={'/profilePlanet/' + props.planetId}>
+                            <img 
+                                className="card-img-top" alt="Card image cap"
+                                src={props.name == "Tatooine" ? 'https://upload.wikimedia.org/wikipedia/en/6/6d/Tatooine_%28fictional_desert_planet%29.jpg' : `https://starwars-visualguide.com/assets/img/planets/${props.srcImg}.jpg`} 
+                                onError={(e) => {
+                                    e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
                             }}/>
+                        </Link>
                         <div className="card-body">
                             <Link to={'/profilePlanet/' + props.planetId} style={{ textDecoration: 'none' }}><h5 className="card-title text-warning fs-3" style={{ textDecoration: 'none' }}>{props.name}</h5></Link>
                             <p className="card-text mb-0">Population: {props.population}</p>
@@ -67,13 +71,15 @@ const Card = (props) => {
         else if ( props.typeofCard === "vehicles" ) {
             return (
                 <>
-                    <div className="card" id="starWCard" style={{ width: '16rem', display: 'inline-block'}}>
-                        <img 
+                    <div className="card mx-1" id="starWCard" style={{ width: '16rem', display: 'inline-block'}}>
+                        <Link className="text-warning" to={'/profileVehicle/' + props.vehicleId}>
+                            <img 
                             className="card-img-top" alt="Card image cap"
                             src={`https://starwars-visualguide.com/assets/img/vehicles/${props.srcImg}.jpg`} 
                             onError={(e) => {
                                 e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
                             }}/>
+                        </Link>
                         <div className="card-body">
                             <Link to={'/profileVehicle/' + props.vehicleId} style={{ textDecoration: 'none' }}><h5 className="card-title text-warning fs-3" style={{ textDecoration: 'none' }}>{props.name}</h5></Link>
                             <p className="card-text mb-0">Model: {props.model}</p>
@@ -97,13 +103,15 @@ const Card = (props) => {
         else if ( props.typeofCard === "films" ) {
             return (
                 <>
-                    <div className="card" id="starWCard" style={{ width: '16rem', display: 'inline-block'}}>
-                        <img 
+                    <div className="card mx-1" id="starWCard" style={{ width: '16rem', display: 'inline-block'}}>
+                        <Link className="text-warning" to={'/profileFilm/' + props.filmId}>
+                            <img 
                             className="card-img-top" alt="Card image cap"
                             src={`https://starwars-visualguide.com/assets/img/films/${props.srcImg}.jpg`} 
                             onError={(e) => {
                                 e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg'
                             }}/>
+                        </Link>
                         <div className="card-body">
                         <Link to={'/profileFilm/' + props.filmId} style={{ textDecoration: 'none' }}><h5 className="card-title text-warning fs-3" style={{ textDecoration: 'none' }}>{props.title}</h5></Link>
                             <p className="card-text mb-0">Episode #: {props.episode_id}</p>

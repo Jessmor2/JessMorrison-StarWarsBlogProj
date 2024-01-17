@@ -4,20 +4,21 @@
     width: 100px;
 }
 ::-webkit-scrollbar {
-    width: .5em;
+    width: 0;
+    height: .5em;
 }
 
 ::-webkit-scrollbar-track {
-    background: hsl(55 75% 50% / 1);
+    background: hsl(60, 14%, 99%);
     border-radius: 100vw;
-    margin-block: .5em;
+    margin-block: .75em;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: hsl(55 100% 45% / 1);
+    background: hsl(53, 97%, 49%);
     border-radius: 100vw
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: hsl(55 100% 40% / 1);
+    background: hsl(53, 97%, 49%);
 }
